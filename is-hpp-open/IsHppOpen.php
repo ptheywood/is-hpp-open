@@ -63,7 +63,7 @@ class IsHppOpen {
             $response = $request->requestRiver($this->config['trent-uuid']);
             // Use the repsonse and config to decide if level is ok.
 
-            $isOpen = $this->isLevelTooHigh($response);
+            $isOpen = !$this->isLevelTooHigh($response);
             // Return boolean value if method parameter is false.
             if(!$vagueResponses){
                 return $isOpen;
