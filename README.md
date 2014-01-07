@@ -7,7 +7,7 @@ This simply estimates if teh course will be open by assuming that above a level 
 
 Usage
 -----
-See (is-hpp-open.php)[https://github.com/peethwd/is-hpp-open/blob/master/is-hpp-open/is-hpp-open.php]
+See (is-hpp-open.php)[https://github.com/peethwd/is-hpp-open/blob/master/is-hpp-open/examples.php]
 
 
 
