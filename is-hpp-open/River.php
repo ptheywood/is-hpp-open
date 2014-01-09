@@ -9,7 +9,7 @@ class River {
     private $uuid, $url, $river, $state;
     private $eaLevel;
 
-    function __construct($json){
+    function __construct($json = null){
         $this->loadFromJson($json);
     }
 
@@ -50,6 +50,22 @@ class River {
 
     public function getEaLevel(){
         return $this->eaLevel;
+    }
+
+    public function encodeToJson(){
+        return json_encode(get_object_vars($this));
+    }
+    public static function decodeFromJson($json){
+        $decoded = json_decode($json);
+        $obj = new River();
+
+        $obj->uuid = (isset($decoded->uuid)) ? $decoded->uuid : null;
+        $obj->url = (isset($decoded->url)) ? $decoded->url : null;
+        $obj->river = (isset($decoded->river)) ? $decoded->river : null;
+        $obj->state  = (isset($decoded->state)) ? $decoded->state : null;
+        $obj->eaLevel = (isset($decoded->eaLevel)) ? $decoded->eaLevel : null;
+
+        return $obj;
     }
 
 }

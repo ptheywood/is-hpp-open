@@ -6,13 +6,13 @@
  */
 
 // Require main class.
-require("is-hpp-open/IsHppOpen.php");
+require_once("is-hpp-open/IsHppOpen.php");
 
 // Instanciate
 $isHppOpen = new IsHppOpen();
 
 // Check if the course will be open.
-var_dump( $isHppOpen->check() );
+// var_dump( $isHppOpen->check() );
 
 // Check while returning string formatted output
 var_dump( $isHppOpen->check(true) );

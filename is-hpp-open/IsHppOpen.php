@@ -4,7 +4,7 @@
  * @author Peter Heywood
  * @version 0.1.0
  */
-require("RainchasersRequest.php");
+require_once("RainchasersRequest.php");
 
 class IsHppOpen {
 
@@ -43,7 +43,9 @@ class IsHppOpen {
         if(!isset($this->config["cut-off-height"]) || strlen($this->config["cut-off-height"]) == 0){
             $errors["cut-off-height"] = "'cut-off-height' must be set";
         }
-
+        if(!isset($this->config["request-time-wait"]) || strlen($this->config["request-time-wait"]) == 0){
+            $errors["request-time-wait"] = "'request-time-wait' must be set";
+        }
         if(count($errors) == 0){
             return true;
         } else {
@@ -59,7 +61,7 @@ class IsHppOpen {
         // If the configuration is valid, check the level.
         if($this->validConfig){
             // Make request to rainchasers
-            $request = new RainchasersRequest($this->config['endpoint'], $this->config['user-agent']);
+            $request = new RainchasersRequest($this->config['endpoint'], $this->config['user-agent'], $this->config['request-time-wait']);
             $response = $request->requestRiver($this->config['trent-uuid']);
             // Use the repsonse and config to decide if level is ok.
 
