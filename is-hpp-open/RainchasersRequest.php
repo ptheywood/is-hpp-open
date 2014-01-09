@@ -33,7 +33,11 @@ class RainchasersRequest {
             $response = new RainchasersResponse($json);
 
             if($response->goodStatus()){
-                ResponseCache::cacheResponse($response);
+                $cached = ResponseCache::cacheResponse($response);
+                if($cached === false){
+                    // @todo nicer error
+                    var_dump("Caching error");
+                }
             }
 
             return $response;

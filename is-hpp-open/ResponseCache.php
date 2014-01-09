@@ -7,7 +7,7 @@
 require_once("RainchasersResponse.php");
 
 class ResponseCache {
-    const CACHE_PATH = "./responseCache.json";
+    const CACHE_PATH = "/responseCache.json";
 
 
     public static function getLastResponseTime(){
@@ -40,7 +40,8 @@ class ResponseCache {
         // Encode the repsones
         $json = $rainchasersResponse->encodeToJson();
         // write to file
-        file_put_contents(dirname(__FILE__) . self::CACHE_PATH, $json);
+        $success = file_put_contents(dirname(__FILE__) . self::CACHE_PATH, $json);
+        return $success;
     }
 
     public static function cacheExists(){
