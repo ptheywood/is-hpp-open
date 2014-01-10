@@ -13,10 +13,29 @@ Users should define a useragent string for their application in accordance with 
 
 It is also possible to set values used by teh application, to point it to another river via ```trent-uuid```, or change the ```cut-off-height``` to alter when river level decisions are made. 
 
+
 Usage
 -----
-See [examples.php](https://github.com/peethwd/is-hpp-open/blob/master/examples.php)
 
+    // Require main class.
+    require_once("IsHppOpen/IsHppOpen.php");
+    // Register the autoloader if required.
+    \IsHppOpen\IsHppOpen::registerAutoloader();
+
+    // Instanciate
+    $isHppOpen = new \IsHppOpen\IsHppOpen();
+
+It is then possible to check the level in a variety of ways:
+
+    $booleanResponse = $isHppOpen->check();
+
+Where $booleanResponse would be ```true``` or ```false```.
+
+    $stringResponse = $isHppOpen->check(true);
+
+Where $booleanResponse would be a vaguely phrased string ```Probably``` or ```Probably not```.
+
+See [examples.php](https://github.com/peethwd/is-hpp-open/blob/master/examples.php)
 
 
 Licencing 
