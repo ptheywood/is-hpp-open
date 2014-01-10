@@ -5,6 +5,14 @@ Check if the River Trent is too high to be open or not via api.rainchasers.com.
 
 This simply estimates if teh course will be open by assuming that above a level of 2.00m at the [Colwick River Guage](http://www.environment-agency.gov.uk/homeandleisure/floods/riverlevels/120752.aspx?stationId=2102) on the River Trent.
 
+Configuration
+-------------
+Configuration is handled via [IsHppOpen/config.ini](https://github.com/peethwd/is-hpp-open/blob/master/IsHppOpen/config.ini)
+
+Users should define a useragent string for their application in accordance with the [rainchasers API](http://developer.rainchasers.com/#api).
+
+It is also possible to set values used by teh application, to point it to another river via ```trent-uuid```, or change the ```cut-off-height``` to alter when river level decisions are made. 
+
 Usage
 -----
 See [examples.php](https://github.com/peethwd/is-hpp-open/blob/master/examples.php)
