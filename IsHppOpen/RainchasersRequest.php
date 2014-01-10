@@ -15,6 +15,8 @@ class RainchasersRequest {
      * @param String $endpoint target end point for api request
      * @param String $userAgent user agent string to identify the application
      * @param int $waitTime time in seconds to wait between requests
+     * @author  Peter Heywood <peethwd@gmail.com>
+
      */
     function __construct($endpoint, $userAgent, $waitTime){
         $this->endpoint = $endpoint;
@@ -26,6 +28,7 @@ class RainchasersRequest {
      * Make a request about a river specified by it's uuid
      * @param  string $uuid
      * @return \IsHppOpen\RainchasersResponse
+     * @author  Peter Heywood <peethwd@gmail.com>
      */
     public function requestRiver($uuid){
         if($this->requestFrequencyOK()){
@@ -62,6 +65,7 @@ class RainchasersRequest {
     /**
      * Check if the last api request was long enough ago to make a new request
      * @return boolean
+     * @author  Peter Heywood <peethwd@gmail.com>
      */
     private function requestFrequencyOK(){
         $currentTime = time();
