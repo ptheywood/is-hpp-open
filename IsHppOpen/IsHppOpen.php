@@ -15,6 +15,10 @@ class IsHppOpen {
     private $config = array();
     private $validConfig = false;
 
+    /**
+     * Simple constructor which loads and validates the configuration file.
+     * @author  Peter Heywood <peethwd@gmail.com>
+     */
     function __construct(){
         // Load configuration
         $this->loadConfig();
@@ -23,10 +27,19 @@ class IsHppOpen {
 
     }
 
+    /**
+     * Parse config.ini to load the configuration array
+     * @author Peter Heywood <peethwd@gmail.com>
+     */
     private function loadConfig(){
         $this->config = parse_ini_file(self::CONFIG_FILE);
     }
 
+    /**
+     * Validate a loaded configuration to allow other functions to be used.
+     * @return boolean indicating success
+     * @author Peter Heywood <peethwd@gmail.com>
+     */
     private function validateConfig(){
         // Check config fields are all valid.
         $errors = array();
@@ -57,6 +70,12 @@ class IsHppOpen {
 
     }
 
+    /**
+     * Check to see if HPP should be open or not based on rainchasers data and the config file.
+     * @param  boolean $vagueResponses if true function will return vague string based responses rather than boolean
+     * @return mixed boolean or string, indicating if the course should be open or not.
+     * @author Peter Heywood <peethwd@gmail.com>
+     */
     public function check($vagueResponses = false){
         // If the configuration is valid, check the level.
         if($this->validConfig){
@@ -83,6 +102,12 @@ class IsHppOpen {
         }
     }
 
+    /**
+     * Compare the river level to the cut-off-height from the config to see if the level is too high for the course to be open or not.
+     * @param  \IsHppOpen\RainchasersResponse  $rainchasersResponse
+     * @return boolean indicating if level is too high.
+     * @author Peter Heywood <peethwd@gmail.com>
+     */
     private function isLevelTooHigh($rainchasersResponse){
         // If the response is good.
         if($rainchasersResponse->goodStatus()){
@@ -97,7 +122,10 @@ class IsHppOpen {
         }
     }
 
-    // Autoloading based on Codeguy\Slim https://github.com/codeguy/Slim
+    /**
+     * Autoload function based on Codeguy\Slim https://github.com/codeguy/Slim php's autoload 
+     * @param  string $className
+     */
     public static function autoload($className){
         $thisClass = str_replace(__NAMESPACE__.'\\', '', __CLASS__);
 
@@ -122,7 +150,10 @@ class IsHppOpen {
         }
     }
 
-    //Register this autoloader.
+    /**
+     * Register the class autoloader via spl_autoload_register
+     * @author  Peter Heywood <peethwd@gmail.com>
+     */
     public static function registerAutoloader(){
         spl_autoload_register(__NAMESPACE__ . "\\IsHppOpen::autoload");
     }
