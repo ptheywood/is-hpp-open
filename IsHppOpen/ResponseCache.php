@@ -4,7 +4,7 @@
  * @author Peter Heywood
  * @version 0.1.0
  */
-require_once("RainchasersResponse.php");
+namespace IsHppOpen;
 
 class ResponseCache {
     const CACHE_PATH = "/responseCache.json";

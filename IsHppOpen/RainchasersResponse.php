@@ -4,7 +4,7 @@
  * @author Peter Heywood
  * @version 0.1.0
  */
-require_once("River.php");
+namespace IsHppOpen;
 
 class RainchasersResponse {
 

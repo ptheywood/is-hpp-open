@@ -4,6 +4,7 @@
  * @author Peter Heywood
  * @version 0.1.0
  */
+namespace IsHppOpen;
 
 class River {
     private $uuid, $url, $river, $state;

@@ -4,8 +4,7 @@
  * @author Peter Heywood
  * @version 0.1.0
  */
-require_once("RainchasersResponse.php");
-require_once("ResponseCache.php");
+namespace IsHppOpen;
 
 class RainchasersRequest {
 

@@ -4,7 +4,7 @@
  * @author Peter Heywood
  * @version 0.1.0
  */
-require_once("RainchasersRequest.php");
+namespace IsHppOpen;
 
 class IsHppOpen {
 
@@ -95,5 +95,35 @@ class IsHppOpen {
             var_dump("BAD RESPONSE");
             return NULL;
         }
+    }
+
+    // Autoloading based on Codeguy\Slim https://github.com/codeguy/Slim
+    public static function autoload($className){
+        $thisClass = str_replace(__NAMESPACE__.'\\', '', __CLASS__);
+
+        $baseDir = __DIR__;
+
+        if (substr($baseDir, -strlen($thisClass)) === $thisClass) {
+            $baseDir = substr($baseDir, 0, -strlen($thisClass));
+        }
+
+        $className = ltrim($className, '\\');
+        $fileName  = $baseDir;
+        $namespace = '';
+        if ($lastNsPos = strripos($className, '\\')) {
+            $namespace = substr($className, 0, $lastNsPos);
+            $className = substr($className, $lastNsPos + 1);
+            $fileName  .= str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
+        }
+        $fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
+
+        if (file_exists($fileName)) {
+            require $fileName;
+        }
+    }
+
+    //Register this autoloader.
+    public static function registerAutoloader(){
+        spl_autoload_register(__NAMESPACE__ . "\\IsHppOpen::autoload");
     }
 }
