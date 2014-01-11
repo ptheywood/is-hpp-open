@@ -14,6 +14,7 @@ class IsHppOpen {
 
     private $config = array();
     private $validConfig = false;
+    private $riverData = null;
 
     /**
      * Simple constructor which loads and validates the configuration file.
@@ -25,6 +26,14 @@ class IsHppOpen {
         // Validate config
         $this->validConfig = $this->validateConfig();
 
+    }
+
+    /**
+     * Make private river data accessible from the main class, so the leve is accessible publically for output.
+     * @return \IsHppOpen\River RiverData
+     */
+    public function getRiverData(){
+        return $this->riverData;
     }
 
     /**
@@ -82,6 +91,7 @@ class IsHppOpen {
             // Make request to rainchasers
             $request = new RainchasersRequest($this->config['endpoint'], $this->config['user-agent'], $this->config['request-time-wait']);
             $response = $request->requestRiver($this->config['trent-uuid']);
+            $this->riverData = $response->getRiver();
             // Use the repsonse and config to decide if level is ok.
 
             $isOpen = !$this->isLevelTooHigh($response);
