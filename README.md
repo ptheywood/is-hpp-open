@@ -35,6 +35,13 @@ Where $booleanResponse would be ```true``` or ```false```.
 
 Where $booleanResponse would be a vaguely phrased string ```Probably``` or ```Probably not```.
 
+The river data from a request is accessible from the main class, via ```getRiverData()``` after ```check()``` has been called.
+
+    if($isHppOpen->getRiverData() != null){
+        var_dump($isHppOpen->getRiverData()->getEaLevel());
+    }
+
+
 See [examples.php](https://github.com/peethwd/is-hpp-open/blob/master/examples.php)
 
 

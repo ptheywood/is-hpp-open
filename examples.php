@@ -18,3 +18,8 @@ $isHppOpen = new \IsHppOpen\IsHppOpen();
 
 // Check while returning string formatted output
 var_dump( $isHppOpen->check(true) );
+
+// When a request has been made, the river data object is accessible from the main class
+if($isHppOpen->getRiverData() != null){
+    var_dump($isHppOpen->getRiverData()->getEaLevel());
+}
