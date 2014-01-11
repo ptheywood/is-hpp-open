@@ -37,6 +37,18 @@ class IsHppOpen {
     }
 
     /**
+     * Make cut off height from config publically accessible
+     * @return mixed the cut off height from config.
+     */
+    public function getConfigCutOffHeight(){
+        if($this->validConfig){
+            return $this->config["cut-off-height"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
      * Parse config.ini to load the configuration array
      * @author Peter Heywood <peethwd@gmail.com>
      */
