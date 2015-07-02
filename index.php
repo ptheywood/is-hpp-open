@@ -101,10 +101,10 @@
                     <hr />
                     <ul class="credit text-center list-inline">
                         <li>
-                            Created by <a href="http://twitter.com/peethwd" class="btn btn-small btn-primary">@peethwd</a>
+                            Created by <a href="http://twitter.com/ptheywood" class="btn btn-small btn-primary">@ptheywood</a>
                         </li>
                         <li>
-                            View on <a href="https://github.com/peethwd/is-hpp-open" class="btn btn-small btn-default btn-dark">Github</a>
+                            View on <a href="https://github.com/ptheywood/is-hpp-open" class="btn btn-small btn-default btn-dark">Github</a>
                         </li>
                     </ul>
                     <div class="text-center rainchasers-credit">
